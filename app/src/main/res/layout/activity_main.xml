@@ -241,6 +241,7 @@
                 android:textSize="25dp"
                 android:backgroundTint="@color/teal"/>
 
+            <!--
             <Button
                 android:id="@+id/cosID"
                 android:layout_width="0dp"
@@ -263,11 +264,13 @@
                 android:textSize="25dp"
                 android:backgroundTint="@color/teal"/>
 
+           -->
+
             <Button
                 android:id="@+id/equalID"
                 android:layout_height="80dp"
                 android:layout_width="0dp"
-                android:layout_weight=".7"
+                android:layout_weight="2.13"
                 android:text="="
                 android:padding="8dp"
                 android:layout_margin="2dp"
