@@ -35,8 +35,8 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.multiplyID).setOnClickListener(this::onOperatorClick);
         findViewById(R.id.divideID).setOnClickListener(this::onOperatorClick);
         findViewById(R.id.percentageID).setOnClickListener(this::onOperatorClick);
-        findViewById(R.id.sinID).setOnClickListener(this:: onSinClick);
-        findViewById(R.id.cosID).setOnClickListener(this:: onCosClick);
+       // findViewById(R.id.sinID).setOnClickListener(this:: onSinClick);
+       // findViewById(R.id.cosID).setOnClickListener(this:: onCosClick);
 
         findViewById(R.id.equalID).setOnClickListener(this::onEqualsClick);
 
