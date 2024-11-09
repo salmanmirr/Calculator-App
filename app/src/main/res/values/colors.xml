@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="lightBlue">#D4F6FF</color>
+    <color name="lightOrange">#FFDDAE</color>
+    <color name="superLightBlue">#FBFBFB</color>
+    <color name="anotherBlue">#C6E7FF</color>
+    <color name="someGray">#A6AEBF</color>
+    <color name="darkOrange">#FFCF9D</color>
+    <color name="diffBlue">#4A628A</color>
+    <color name="charcoalBlack">#333333</color>
+    <color name="teal">#009688 </color>
+    <color name="coral">#FF5722</color>
+    <color name="lightGray">#E0E0E0</color>
+    <color name="lightTeal">#B2DFDB</color>
+
+
+
 </resources>

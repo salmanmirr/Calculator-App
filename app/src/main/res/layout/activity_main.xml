@@ -4,19 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/white">
 
 
-    <TextView
-        android:id="@+id/textViewID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Calculator"
-        android:padding="10dp"
-        android:textSize="27dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        />
 
     <TextView
         android:id="@+id/displayID"
@@ -26,45 +17,67 @@
         android:text="0"
         android:textSize="60dp"
         android:padding="20dp"
-        android:layout_below="@+id/textViewID"/>
+        android:layout_above="@+id/tableLayoutID"/>
 
 
     <TableLayout
         android:id="@+id/tableLayoutID"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="450dp"
         android:layout_alignParentBottom="true"
         android:stretchColumns="*"
-        android:padding="19dp">
+        android:padding="2dp">
+
+
+
 
         <TableRow>
 
             <Button
                 android:id="@+id/acID"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="80dp"
                 android:text="AC"
-                android:textStyle="italic"
-                android:padding="8dp"/>
+                android:padding="8dp"
+                android:layout_weight=".7"
+                android:layout_margin="2dp"
+                android:textSize="18dp"
+                android:backgroundTint="@color/coral"
+                />
 
             <Button
                 android:id="@+id/deleteID"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="DELETE"
-                android:textStyle="italic"/>
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:text="C"
+                android:textStyle="bold"
+                android:padding="8dp"
+                android:layout_weight=".7"
+                android:layout_margin="2dp"
+                android:textSize="18dp"
+                android:backgroundTint="@color/coral"/>
 
             <Button
                 android:id="@+id/percentageID"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="%" />
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:text="%"
+                android:padding="8dp"
+                android:layout_weight=".7"
+                android:layout_margin="2dp"
+                android:textSize="25dp"
+                android:backgroundTint="@color/lightGray"/>
 
             <Button
                 android:id="@+id/divideID"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="/" />
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:text="/"
+                android:padding="8dp"
+                android:layout_weight=".7"
+                android:layout_margin="2dp"
+                android:textSize="25dp"
+                android:backgroundTint="@color/teal"/>
 
         </TableRow>
 
@@ -73,27 +86,46 @@
             <Button
                 android:id="@+id/oneID"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="80dp"
                 android:text="7"
-                android:padding="8dp"/>
+                android:padding="8dp"
+                android:layout_weight=".7"
+                android:layout_margin="2dp"
+                android:textSize="25dp"
+                android:backgroundTint="@color/teal"/>
 
             <Button
                 android:id="@+id/twoID"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="8" />
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:text="8"
+                android:padding="8dp"
+                android:layout_weight=".7"
+                android:layout_margin="2dp"
+                android:textSize="25dp"
+                android:backgroundTint="@color/teal"/>
 
             <Button
                 android:id="@+id/threeID"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="9" />
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:text="9"
+                android:padding="8dp"
+                android:layout_weight=".7"
+                android:layout_margin="2dp"
+                android:textSize="25dp"
+                android:backgroundTint="@color/teal"/>
 
             <Button
                 android:id="@+id/multiplyID"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="x" />
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:text="*"
+                android:padding="8dp"
+                android:layout_weight=".7"
+                android:layout_margin="2dp"
+                android:textSize="25dp"
+                android:backgroundTint="@color/teal"/>
 
         </TableRow>
 
@@ -102,27 +134,47 @@
 
             <Button
                 android:id="@+id/fourID"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="4" />
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:text="4"
+                android:padding="8dp"
+                android:layout_weight=".7"
+                android:layout_margin="2dp"
+                android:textSize="25dp"
+                android:backgroundTint="@color/teal"/>
 
             <Button
                 android:id="@+id/fiveID"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="5" />
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:text="5"
+                android:padding="8dp"
+                android:layout_weight=".7"
+                android:layout_margin="2dp"
+                android:textSize="25dp"
+                android:backgroundTint="@color/teal"/>
 
             <Button
                 android:id="@+id/sixID"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="6" />
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:text="6"
+                android:padding="8dp"
+                android:layout_weight=".7"
+                android:layout_margin="2dp"
+                android:textSize="25dp"
+                android:backgroundTint="@color/teal"/>
 
             <Button
                 android:id="@+id/subtractID"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="-" />
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:text="-"
+                android:padding="8dp"
+                android:layout_weight=".7"
+                android:layout_margin="2dp"
+                android:textSize="25dp"
+                android:backgroundTint="@color/teal"/>
 
         </TableRow>
 
@@ -131,27 +183,48 @@
 
             <Button
                 android:id="@+id/sevenID"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="1" />
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:text="1"
+                android:padding="8dp"
+                android:layout_weight=".7"
+                android:layout_margin="2dp"
+                android:textSize="25dp"
+                android:backgroundTint="@color/teal"/>
 
             <Button
                 android:id="@+id/eightID"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="2" />
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:text="2"
+                android:padding="8dp"
+                android:layout_weight=".7"
+                android:layout_margin="2dp"
+                android:textSize="25dp"
+                android:backgroundTint="@color/teal"/>
 
             <Button
                 android:id="@+id/nineID"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="3" />
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:text="3"
+                android:padding="8dp"
+                android:layout_weight=".7"
+                android:layout_margin="2dp"
+                android:textSize="25dp"
+                android:backgroundTint="@color/teal"
+                />
 
             <Button
                 android:id="@+id/addID"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="+" />
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:text="+"
+                android:padding="8dp"
+                android:layout_weight=".7"
+                android:layout_margin="2dp"
+                android:textSize="25dp"
+                android:backgroundTint="@color/teal"/>
 
         </TableRow>
 
@@ -159,16 +232,49 @@
 
             <Button
                 android:id="@+id/zeroID"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="0" />
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:text="0"
+                android:padding="8dp"
+                android:layout_weight=".7"
+                android:layout_margin="2dp"
+                android:textSize="25dp"
+                android:backgroundTint="@color/teal"/>
+
+            <Button
+                android:id="@+id/cosID"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:text="cos"
+                android:padding="8dp"
+                android:layout_weight=".7"
+                android:layout_margin="2dp"
+                android:textSize="25dp"
+                android:backgroundTint="@color/teal"/>
+
+            <Button
+                android:id="@+id/sinID"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:text="sin"
+                android:padding="8dp"
+                android:layout_weight=".7"
+                android:layout_margin="2dp"
+                android:textSize="25dp"
+                android:backgroundTint="@color/teal"/>
 
             <Button
                 android:id="@+id/equalID"
-                android:layout_height="wrap_content"
+                android:layout_height="80dp"
                 android:layout_width="0dp"
-                android:layout_weight="3"
-                android:text="="/>
+                android:layout_weight=".7"
+                android:text="="
+                android:padding="8dp"
+                android:layout_margin="2dp"
+                android:textSize="25dp"
+                android:backgroundTint="@color/coral"/>
+
+
 
         </TableRow>
 

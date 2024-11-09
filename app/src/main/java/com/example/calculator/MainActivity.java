@@ -1,8 +1,6 @@
 package com.example.calculator;
 
 import android.os.Bundle;
-
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -11,16 +9,12 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     private TextView displayTextView;
-    private double firstNumber = 0;
-    private double secondNumber = 0;
-    private String operator = "";
     private boolean isNewOperation = true;
-
+    private StringBuilder expression = new StringBuilder();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
         displayTextView = findViewById(R.id.displayID);
@@ -41,70 +35,105 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.multiplyID).setOnClickListener(this::onOperatorClick);
         findViewById(R.id.divideID).setOnClickListener(this::onOperatorClick);
         findViewById(R.id.percentageID).setOnClickListener(this::onOperatorClick);
+        findViewById(R.id.sinID).setOnClickListener(this:: onSinClick);
+        findViewById(R.id.cosID).setOnClickListener(this:: onCosClick);
 
         findViewById(R.id.equalID).setOnClickListener(this::onEqualsClick);
 
         findViewById(R.id.acID).setOnClickListener(view -> clear());
 
-
+        findViewById(R.id.deleteID).setOnClickListener(view -> deleteLastCharacter());
     }
+
 
     private void onNumberClick(View view) {
         Button button = (Button) view;
-        String currentText = displayTextView.getText().toString();
-
         if (isNewOperation) {
-            displayTextView.setText(button.getText().toString());
+            expression.setLength(0);
             isNewOperation = false;
-
-        } else {
-            displayTextView.setText(currentText + button.getText().toString());
         }
+        expression.append(button.getText().toString());
+        displayTextView.setText(expression.toString());
     }
 
     private void onOperatorClick(View view) {
         Button button = (Button) view;
-        firstNumber = Double.parseDouble(displayTextView.getText().toString());
-        operator = button.getText().toString();
-        isNewOperation = true;
+
+        if (!isNewOperation) {
+            expression.append(button.getText().toString());
+            displayTextView.setText(expression.toString());
+            isNewOperation = false;
+        }
     }
 
     private void onEqualsClick(View view) {
-        double result = 0;
-        switch (operator) {
-            case "+":
-                result = firstNumber + secondNumber;
-                break;
-            case "-":
-                result = firstNumber - secondNumber;
-                break;
-            case "*":
-                result = firstNumber * secondNumber;
-                break;
-            case "/":
-                if (secondNumber != 0) {
-                    result = firstNumber / secondNumber;
-                } else {
-                    displayTextView.setText("Error");
-                    operator = "";
-                    isNewOperation = true;
-                    return;
-                }
-                break;
 
+        try {
+            double result = evaluateExpression(expression.toString());
 
+            if (result == (int) result) {
+                displayTextView.setText(String.valueOf((int) result));
+            } else {
+                displayTextView.setText(String.valueOf(result));
+            }
+
+        } catch (Exception e) {
+            displayTextView.setText("Error");
         }
-        displayTextView.setText(String.valueOf(result));
-        operator = "";
         isNewOperation = true;
     }
+
+    private double evaluateExpression(String expr) {
+        double result = 0;
+        char lastOperator = '+';
+        StringBuilder numberBuilder = new StringBuilder();
+
+        for (char ch : expr.toCharArray()) {
+            if (Character.isDigit(ch) || ch == '.') {
+                numberBuilder.append(ch);
+            } else {
+                result = calculate(result, Double.parseDouble(numberBuilder.toString()), lastOperator);
+                lastOperator = ch;
+                numberBuilder.setLength(0);
+            }
+        }
+
+        if (numberBuilder.length() > 0) {
+            result = calculate(result, Double.parseDouble(numberBuilder.toString()), lastOperator);
+        }
+        return result;
+    }
+
+    private double calculate(double left, double right, char operator) {
+        switch(operator) {
+            case '+': return left + right;
+            case '-': return left - right;
+            case '*': return left * right;
+            case '/':
+                if (right == 0) {
+                    throw new ArithmeticException("Division by zero");
+                }
+                return left / right;
+            case '%':
+                return left * (right / 100);
+            default: return 0;
+        }
+    }
+
+    private void deleteLastCharacter() {
+        if (expression.length() > 0) {
+            expression.deleteCharAt(expression.length() -1);
+            displayTextView.setText(expression.toString());
+            if (expression.length() == 0) {
+                displayTextView.setText("0");
+            }
+        }
+    }
+
 
     private void clear() {
+        expression.setLength(0);
         displayTextView.setText("0");
-        firstNumber = 0;
-        secondNumber = 0;
-        operator = "";
         isNewOperation = true;
     }
-
 }
